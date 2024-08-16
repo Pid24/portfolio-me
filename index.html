@@ -6,6 +6,120 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Portfolio - Rofid</title>
     <link rel="stylesheet" href="dist/output.css" />
+    <style>
+      :root {
+        --background-color: #ffffff;
+        --text-color: #000000;
+        --link-color: #1d4ed8;
+        --button-bg: #22c55e;
+        --button-hover-bg: #16a34a;
+      }
+      
+      [data-theme="dark"] {
+        --background-color: #121212;
+        --text-color: #e0e0e0;
+        --link-color: #93c5fd;
+        --button-bg: #4ade80;
+        --button-hover-bg: #3f9c6f;
+      }
+      
+      body {
+        background-color: var(--background-color);
+        color: var(--text-color);
+        font-family: Arial, sans-serif;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      
+      a {
+        color: var(--link-color);
+        text-decoration: none;
+        transition: color 0.3s;
+      }
+      
+      a:hover {
+        color: var(--button-bg);
+      }
+      
+      button {
+        background-color: var(--button-bg);
+        color: #ffffff;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 5px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      
+      button:hover {
+        background-color: var(--button-hover-bg);
+      }
+      
+      header {
+        background-color: var(--background-color);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, box-shadow 0.3s;
+      }
+      
+      header .container {
+        max-width: 1200px;
+        margin: 0 auto;
+      }
+      
+      nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+      }
+      
+      nav ul li {
+        margin-bottom: 10px;
+      }
+      
+      nav ul li a {
+        display: block;
+        padding: 10px;
+        border-radius: 5px;
+        transition: background-color 0.3s, color 0.3s;
+      }
+      
+      nav ul li a:hover {
+        background-color: var(--button-bg);
+        color: #ffffff;
+      }
+      
+      .active-link {
+        font-weight: bold;
+        color: var(--button-bg);
+      }
+      
+      .container {
+        padding: 0 15px;
+      }
+      
+      .relative {
+        position: relative;
+      }
+      
+      .rounded-full {
+        border-radius: 9999px;
+      }
+      
+      .shadow-lg {
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      }
+      
+      .transition {
+        transition: all 0.3s ease;
+      }
+      
+      .button-hover-effect:hover {
+        background-color: var(--button-hover-bg);
+      }
+      
+      svg {
+        fill: currentColor;
+      }
+    </style>
   </head>
   <body>
     <header class="absolute top-0 left-0 z-10 flex items-center w-full bg-transparent">
@@ -23,7 +137,7 @@
             <nav id="nav-menu" class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none">
               <ul class="block lg:flex">
                 <li class="group">
-                  <a href="#home" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary">Home</a>
+                  <a href="#home" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary active-link">Home</a>
                 </li>
                 <li class="group">
                   <a href="#about" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary">About Me</a>
@@ -40,6 +154,9 @@
                 <li class="group">
                   <a href="#contact" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary">Contact</a>
                 </li>
+                <button id="theme-toggle" class="px-4 py-2 text-white rounded-full bg-primary">
+                  Toggle Dark Mode
+                </button>
               </ul>
             </nav>
           </div>
@@ -54,11 +171,11 @@
             <h1 class="text-base font-semibold text-primary md:text-xl">Hi ✌, Saya <span class="block mt-1 text-3xl font-bold text-dark lg:text-5xl">Rofid Nasif Annafie</span></h1>
             <h2 class="mb-5 text-lg font-medium lg:2xl text-secondary">Mahasiswa | Web Developer</h2>
             <p class="mb-10 font-medium leading-relaxed text-secondary">Keunggulan adalah sebuah seni yang dimenangkan oleh latihan dan kebiasaan.</p>
-            <a href="" class="px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out rounded-full bg-primary hover:opacity-80 hover:shadow-lg">Contact Me</a>
+            <a href="#contact" class="px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out rounded-full bg-primary button-hover-effect">Contact Me</a>
           </div>
           <div class="self-end w-full px-4 lg:w-1/2">
             <div class="relative mt-10 lg:right-0 lg:mt-9">
-              <img src="dist/img/yotsuba.png" alt="yotsuba" class="max-w-full mx-auto" />
+              <img src="dist/img/yotsuba.png" alt="rofid-photo" class="max-w-full mx-auto rounded-full shadow-lg" />
               <span class="absolute -translate-x-1/2 -bottom-0 left-1/2 -z-10 md:scale-125">
                 <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <path
@@ -80,40 +197,12 @@
           <div class="w-full px-4 mb-10 lg:w-1/2">
             <h4 class="mb-3 text-lg font-bold uppercase text-primary">About Me</h4>
             <h2 class="max-w-md mb-5 text-3xl font-bold text-dark lg:text-4xl">Mari mengenal saya</h2>
-            <p class="max-w-xl text-base font-medium text-secondary lg:text-lg">Seorang mahasiswa Teknik Informatika yang suka membaca Manhwa dan Manga disela-sela kesibukan. Dan juga penggemar berat Nasuverse</p>
+            <p class="max-w-xl text-base font-medium text-secondary lg:text-lg">Seorang mahasiswa Teknik Informatika yang suka membaca Manhwa dan Manga disela-sela kesibukan. Dan juga penggemar berat Nasuverse.</p>
           </div>
           <div class="w-full px-4 lg:w-1/2">
             <h3 class="mb-4 text-2xl font-semibold text-dark lg:pt-10 lg:text-3xl">Follow Me</h3>
             <p class="mb-6 text-base font-medium text-secondary lg:text-lg">Bisa ikuti saya di media sosial yang lainnya yaa!</p>
             <div class="flex items-center">
-              <a
-                href="https://www.facebook.com/rofidnasif.annafie.14/"
-                target="_blank"
-                class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-                rel="noopener"
-                aria-label="Facebook"
-              >
-                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <title>Facebook</title>
-                  <path
-                    d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                  />
-                </svg>
-              </a>
-              <a
-                href="https://www.instagram.com/piddddz/"
-                target="_blank"
-                class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-                rel="noopener"
-                aria-label="Instagram"
-              >
-                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <title>Instagram</title>
-                  <path
-                    d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
-                  />
-                </svg>
-              </a>
               <a
                 href="https://twitter.com/rfdzna"
                 target="_blank"
@@ -129,7 +218,7 @@
                 </svg>
               </a>
               <a
-                href="https://www.linkedin.com/in/rofidna/"
+                href="https://www.linkedin.com/in/rofid/"
                 target="_blank"
                 class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
                 rel="noopener"
@@ -156,20 +245,6 @@
                   />
                 </svg>
               </a>
-              <a
-                href="https://myanimelist.net/profile/Dartz1"
-                target="_blank"
-                class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-                rel="noopener"
-                aria-label="Myanimelist"
-              >
-                <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                  <title>MyAnimeList</title>
-                  <path
-                    d="M8.273 7.247v8.423l-2.103-.003v-5.216l-2.03 2.404-1.989-2.458-.02 5.285H.001L0 7.247h2.203l1.865 2.545 2.015-2.546 2.19.001zm8.628 2.069l.025 6.335h-2.365l-.008-2.871h-2.8c.07.499.21 1.266.417 1.779.155.381.298.751.583 1.128l-1.705 1.125c-.349-.636-.622-1.337-.878-2.082a9.296 9.296 0 0 1-.507-2.179c-.085-.75-.097-1.471.107-2.212a3.908 3.908 0 0 1 1.161-1.866c.313-.293.749-.5 1.1-.687.351-.187.743-.264 1.107-.359a7.405 7.405 0 0 1 1.191-.183c.398-.034 1.107-.066 2.39-.028l.545 1.749H14.51c-.593.008-.878.001-1.341.209a2.236 2.236 0 0 0-1.278 1.92l2.663.033.038-1.81h2.309zm3.992-2.099v6.627l3.107.032-.43 1.775h-4.807V7.187l2.13.03z"
-                  />
-                </svg>
-              </a>
             </div>
           </div>
         </div>
@@ -182,50 +257,18 @@
           <div class="max-w-xl mx-auto mb-16 text-center">
             <h4 class="mb-2 text-lg font-semibold text-primary">Portfolio</h4>
             <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">Project Terbaru</h2>
-            <p class="font-medium text-md text-secondary md:text-lg">Ini adalah beberapa project terbaru yang saya buat di tahun 2023</p>
+            <p class="font-medium text-md text-secondary md:text-lg">Ini adalah beberapa project terbaru yang saya buat di tahun 2024</p>
           </div>
         </div>
         <div class="flex flex-wrap justify-center w-full px-4 xl:mx-auto xl:w-10/12">
           <div class="p-4 mb-12 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/project1.png" alt="portfolio1" width="w-full" />
+            <div class="overflow-hidden transition-shadow duration-300 rounded-md shadow-md hover:shadow-xl">
+              <img src="dist/img/web-umt.png" alt="portfolio1" class="w-full" />
             </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">HMIF</h3>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">Web UMT</h3>
             <p class="text-base font-medium text-secondary">
-              HMIF merupakan website khusus untuk Himpunan Mahasiswa Teknik Informatika yang berada di Institut Teknologi Indonesia. Website ini menampilkan proker yang akan dijalani serta struktur organisasi HMIF.
+              The UMT website is a dedicated site for the Informatics program at UMT, offering several features such as payment information, academic information, and data on lecturers and alumni of the Informatics program.
             </p>
-          </div>
-          <div class="p-4 mb-12 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/project2.png" alt="portfolio2" width="w-full" />
-            </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">Setu-UMKM</h3>
-            <p class="text-base font-medium text-secondary">
-              Setu-UMKM merupakan sebuah website yang berbasis E-Commerce yang akan menampilkan produk yang ditawarkan di daerah Setu, mulai dari makanan hingga peralatan lainnya.
-            </p>
-          </div>
-          <div class="p-4 mb-12 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/project3.png" alt="portfolio3" width="w-full" />
-            </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">HopeBridge</h3>
-            <p class="text-base font-medium text-secondary">
-              HopeBridge adalah aplikasi web yang dikembangkan untuk membantu mendeteksi depresi melalui penggunaan analisis sentimen dan pemrosesan bahasa alami (Natural Language Processing/NLP).
-            </p>
-          </div>
-          <div class="p-4 mb-12 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/project4.png" alt="portfolio4" width="w-full" />
-            </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">Permata Agro Industri</h3>
-            <p class="text-base font-medium text-secondary">Permata Agro Industri merupakan sebuah website yang menjadi wadah para jurusan Teknik Industri Pertanian yang ada di seluruh Indonesia.</p>
-          </div>
-          <div class="p-4 mb-12 md:w-1/2">
-            <div class="overflow-hidden rounded-md shadow-md">
-              <img src="dist/img/project5.png" alt="portfolio5" width="w-full" />
-            </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">Anwar Center</h3>
-            <p class="text-base font-medium text-secondary">Ini adalah Project pertama saya yaitu membuat sebuah website jasa penyedia layanan service hp terbaik di Garut.</p>
           </div>
     </section>
 
@@ -268,7 +311,7 @@
         </div>
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden bg-white shadow-lg rounded-xl">
+            <div class="mb-10 overflow-hidden transition-shadow duration-300 bg-white shadow-lg rounded-xl hover:shadow-2xl">
               <img src="dist/img/yotsuba-uesugi.jpg" alt="yotsuba-uesugi" class="w-full" />
               <div class="px-6 py-8">
                 <h3>
@@ -280,7 +323,7 @@
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden bg-white shadow-lg rounded-xl">
+            <div class="mb-10 overflow-hidden transition-shadow duration-300 bg-white shadow-lg rounded-xl hover:shadow-2xl">
               <img src="dist/img/lostbelt.jfif" alt="lostbelt7" class="w-full" />
               <div class="px-6 py-8">
                 <h3>
@@ -292,7 +335,7 @@
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden bg-white shadow-lg rounded-xl">
+            <div class="mb-10 overflow-hidden transition-shadow duration-300 bg-white shadow-lg rounded-xl hover:shadow-2xl">
               <img src="dist/img/kobo.jpg" alt="yotsuba-uesugi" class="w-full" />
               <div class="px-6 py-8">
                 <h3>
@@ -331,7 +374,7 @@
               <textarea type="text" id="message" class="w-full h-32 p-3 rounded-md bg-slate-200 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
             </div>
             <div class="w-full px-4">
-              <button class="w-full px-8 py-3 text-base font-semibold text-white transition duration-500 rounded-full bg-primary hover:opacity-80 hover:shadow-lg">Enter</button>
+              <button class="w-full px-8 py-3 text-base font-semibold text-white transition duration-500 rounded-full bg-primary button-hover-effect">Enter</button>
             </div>
           </div>
         </form>
@@ -389,20 +432,6 @@
         <div class="w-full pt-10 border-t border-slate-700">
           <div class="flex items-center justify-center mb-5">
             <a
-              href="https://www.facebook.com/rofidnasif.annafie.14/"
-              target="_blank"
-              class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-              rel="noopener"
-              aria-label="Facebook"
-            >
-              <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <title>Facebook</title>
-                <path
-                  d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"
-                />
-              </svg>
-            </a>
-            <a
               href="https://www.instagram.com/piddddz/"
               target="_blank"
               class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
@@ -431,7 +460,7 @@
               </svg>
             </a>
             <a
-              href="https://www.linkedin.com/in/rofidna/"
+              href="https://www.linkedin.com/in/rofid/"
               target="_blank"
               class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               rel="noopener"
@@ -458,20 +487,6 @@
                 />
               </svg>
             </a>
-            <a
-              href="https://myanimelist.net/profile/Dartz1"
-              target="_blank"
-              class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-              rel="noopener"
-              aria-label="Myanimelist"
-            >
-              <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <title>MyAnimeList</title>
-                <path
-                  d="M8.273 7.247v8.423l-2.103-.003v-5.216l-2.03 2.404-1.989-2.458-.02 5.285H.001L0 7.247h2.203l1.865 2.545 2.015-2.546 2.19.001zm8.628 2.069l.025 6.335h-2.365l-.008-2.871h-2.8c.07.499.21 1.266.417 1.779.155.381.298.751.583 1.128l-1.705 1.125c-.349-.636-.622-1.337-.878-2.082a9.296 9.296 0 0 1-.507-2.179c-.085-.75-.097-1.471.107-2.212a3.908 3.908 0 0 1 1.161-1.866c.313-.293.749-.5 1.1-.687.351-.187.743-.264 1.107-.359a7.405 7.405 0 0 1 1.191-.183c.398-.034 1.107-.066 2.39-.028l.545 1.749H14.51c-.593.008-.878.001-1.341.209a2.236 2.236 0 0 0-1.278 1.92l2.663.033.038-1.81h2.309zm3.992-2.099v6.627l3.107.032-.43 1.775h-4.807V7.187l2.13.03z"
-                />
-              </svg>
-            </a>
           </div>
           <p class="text-xs font-medium text-center text-slate-500">
             Dibuat dengan <span class="text-pink-500">❤</span> oleh <a href="https://www.instagram.com/piddddz/" target="_blank" class="font-bold text-primary">Rofid Nasif Annafie</a>
@@ -482,5 +497,40 @@
     </footer>
 
     <script src="dist/js/script.js"></script>
+    <script>
+      // Highlight active section in the navigation menu
+      const sections = document.querySelectorAll("section");
+      const navLi = document.querySelectorAll("nav ul li a");
+
+      window.onscroll = () => {
+        let current = "";
+
+        sections.forEach((section) => {
+          const sectionTop = section.offsetTop;
+          if (pageYOffset >= sectionTop - 60) {
+            current = section.getAttribute("id");
+          }
+        });
+
+        navLi.forEach((li) => {
+          li.classList.remove("active-link");
+          if (li.getAttribute("href").includes(current)) {
+            li.classList.add("active-link");
+          }
+        });
+      };
+
+  // Theme toggle script
+  const themeToggleButton = document.getElementById('theme-toggle');
+  const bodyElement = document.body;
+  
+  themeToggleButton.addEventListener('click', () => {
+    if (bodyElement.getAttribute('data-theme') === 'dark') {
+      bodyElement.setAttribute('data-theme', 'light');
+    } else {
+      bodyElement.setAttribute('data-theme', 'dark');
+    }
+  });
+    </script>
   </body>
 </html>

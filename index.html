@@ -7,6 +7,32 @@
     <title>Portfolio - Rofid</title>
     <link rel="stylesheet" href="dist/output.css" />
     <style>
+      /* Mengubah teks di hero, about, dan contact section */
+      #home h1 span,
+      #home h2,
+      #home p,
+      #about h2,
+      #about p,
+      #contact h2,
+      #contact p,
+      #portfolio h2,
+      #portfolio p {
+        color: var(--text-color); /* Teks mengikuti variabel tema */
+      }
+
+      /* Warna judul di dark mode */
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--text-color);
+      }
+
+      /* Menyesuaikan warna link */
+      a {
+        color: var(--link-color);
+      }
+
       :root {
         --background-color: #ffffff;
         --text-color: #000000;
@@ -14,7 +40,7 @@
         --button-bg: #22c55e;
         --button-hover-bg: #16a34a;
       }
-      
+
       [data-theme="dark"] {
         --background-color: #121212;
         --text-color: #e0e0e0;
@@ -22,24 +48,24 @@
         --button-bg: #4ade80;
         --button-hover-bg: #3f9c6f;
       }
-      
+
       body {
         background-color: var(--background-color);
         color: var(--text-color);
         font-family: Arial, sans-serif;
         transition: background-color 0.3s, color 0.3s;
       }
-      
+
       a {
         color: var(--link-color);
         text-decoration: none;
         transition: color 0.3s;
       }
-      
+
       a:hover {
         color: var(--button-bg);
       }
-      
+
       button {
         background-color: var(--button-bg);
         color: #ffffff;
@@ -49,114 +75,121 @@
         cursor: pointer;
         transition: background-color 0.3s;
       }
-      
+
       button:hover {
         background-color: var(--button-hover-bg);
       }
-      
+
       header {
         background-color: var(--background-color);
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s, box-shadow 0.3s;
       }
-      
+
       header .container {
         max-width: 1200px;
         margin: 0 auto;
       }
-      
+
       nav ul {
         list-style: none;
         padding: 0;
         margin: 0;
       }
-      
+
       nav ul li {
         margin-bottom: 10px;
       }
-      
+
       nav ul li a {
         display: block;
         padding: 10px;
         border-radius: 5px;
         transition: background-color 0.3s, color 0.3s;
       }
-      
+
       nav ul li a:hover {
         background-color: var(--button-bg);
         color: #ffffff;
       }
-      
+
       .active-link {
         font-weight: bold;
         color: var(--button-bg);
       }
-      
+
       .container {
         padding: 0 15px;
       }
-      
+
       .relative {
         position: relative;
       }
-      
+
       .rounded-full {
         border-radius: 9999px;
       }
-      
+
       .shadow-lg {
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
       }
-      
+
       .transition {
         transition: all 0.3s ease;
       }
-      
+
       .button-hover-effect:hover {
         background-color: var(--button-hover-bg);
       }
-      
+
       svg {
         fill: currentColor;
+      }
+
+      /* Mengabaikan dark mode untuk portfolio dan blog */
+      .no-dark-mode {
+        background-color: #f8fafc !important; /* Warna background light */
+        color: #1f2937 !important; /* Warna teks light */
+      }
+
+      .no-dark-mode h2,
+      .no-dark-mode p,
+      .no-dark-mode a {
+        color: #1f2937 !important; /* Pastikan teks tetap gelap */
       }
     </style>
   </head>
   <body>
-    <header class="absolute top-0 left-0 z-10 flex items-center w-full bg-transparent">
+    <header class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent">
       <div class="container">
         <div class="relative flex items-center justify-between">
           <div class="px-4">
             <a href="#home" class="block py-6 text-lg font-bold text-primary">ROFID</a>
           </div>
           <div class="flex items-center px-4">
-            <button id="hamburger" name="hamburger" type="button" class="absolute block right-4 lg:hidden" aria-label="hamburger">
-              <span class="transition duration-300 ease-in-out origin-top-left hamburger-line"></span>
-              <span class="transition duration-300 ease-in-out hamburger-line"></span>
-              <span class="transition duration-300 ease-in-out origin-top-left hamburger-line"></span>
+            <button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden" aria-label="hamburger">
+              <span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
+              <span class="hamburger-line transition duration-300 ease-in-out"></span>
+              <span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
             </button>
             <nav id="nav-menu" class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none">
               <ul class="block lg:flex">
                 <li class="group">
-                  <a href="#home" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary active-link">Home</a>
+                  <a href="#home" class="active-link mx-8 flex py-2 text-base text-dark group-hover:text-primary">Home</a>
                 </li>
                 <li class="group">
-                  <a href="#about" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary">About Me</a>
+                  <a href="#about" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary">About Me</a>
                 </li>
                 <li class="group">
-                  <a href="#portfolio" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary">Portfolio</a>
+                  <a href="#portfolio" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary">Portfolio</a>
                 </li>
                 <li class="group">
-                  <a href="#clients" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary">Clients</a>
+                  <a href="#blog" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary">Blog</a>
                 </li>
                 <li class="group">
-                  <a href="#blog" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary">Blog</a>
+                  <a href="#contact" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary">Contact</a>
                 </li>
-                <li class="group">
-                  <a href="#contact" class="flex py-2 mx-8 text-base text-dark group-hover:text-primary">Contact</a>
-                </li>
-                <button id="theme-toggle" class="px-4 py-2 text-white rounded-full bg-primary">
-                  Toggle Dark Mode
-                </button>
+                <button id="theme-toggle" class="rounded-full bg-primary px-4 py-2 text-white">Toggle Dark Mode</button>
               </ul>
             </nav>
           </div>
@@ -167,16 +200,16 @@
     <section id="home" class="pt-36">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="self-center w-full px-4 lg:w-1/2">
-            <h1 class="text-base font-semibold text-primary md:text-xl">Hi ✌, Saya <span class="block mt-1 text-3xl font-bold text-dark lg:text-5xl">Rofid Nasif Annafie</span></h1>
-            <h2 class="mb-5 text-lg font-medium lg:2xl text-secondary">Mahasiswa | Web Developer</h2>
+          <div class="w-full self-center px-4 lg:w-1/2">
+            <h1 class="text-base font-semibold" style="color: var(--text-color)">Hi ✌, Saya <span class="mt-1 block text-3xl font-bold" style="color: var(--text-color)">Rofid Nasif Annafie</span></h1>
+            <h2 class="lg:2xl mb-5 text-lg font-medium text-secondary">Mahasiswa | Web Developer</h2>
             <p class="mb-10 font-medium leading-relaxed text-secondary">Keunggulan adalah sebuah seni yang dimenangkan oleh latihan dan kebiasaan.</p>
-            <a href="#contact" class="px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out rounded-full bg-primary button-hover-effect">Contact Me</a>
+            <a href="#contact" class="button-hover-effect rounded-full bg-primary px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out">Contact Me</a>
           </div>
-          <div class="self-end w-full px-4 lg:w-1/2">
+          <div class="w-full self-end px-4 lg:w-1/2">
             <div class="relative mt-10 lg:right-0 lg:mt-9">
-              <img src="dist/img/yotsuba.png" alt="rofid-photo" class="max-w-full mx-auto rounded-full shadow-lg" />
-              <span class="absolute -translate-x-1/2 -bottom-0 left-1/2 -z-10 md:scale-125">
+              <img src="dist/img/yotsuba.png" alt="rofid-photo" class="mx-auto max-w-full rounded-full shadow-lg" />
+              <span class="absolute -bottom-0 left-1/2 -z-10 -translate-x-1/2 md:scale-125">
                 <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
                   <path
                     fill="#22c55e"
@@ -194,9 +227,9 @@
     <section id="about" class="pb-32 pt-36">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-10 lg:w-1/2">
+          <div class="mb-10 w-full px-4 lg:w-1/2">
             <h4 class="mb-3 text-lg font-bold uppercase text-primary">About Me</h4>
-            <h2 class="max-w-md mb-5 text-3xl font-bold text-dark lg:text-4xl">Mari mengenal saya</h2>
+            <h2 class="mb-5 max-w-md text-3xl font-bold text-dark lg:text-4xl">Mari mengenal saya</h2>
             <p class="max-w-xl text-base font-medium text-secondary lg:text-lg">Seorang mahasiswa Teknik Informatika yang suka membaca Manhwa dan Manga disela-sela kesibukan. Dan juga penggemar berat Nasuverse.</p>
           </div>
           <div class="w-full px-4 lg:w-1/2">
@@ -206,7 +239,7 @@
               <a
                 href="https://twitter.com/rfdzna"
                 target="_blank"
-                class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+                class="mx-3 mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
                 rel="noopener"
                 aria-label="Twitter"
               >
@@ -220,7 +253,7 @@
               <a
                 href="https://www.linkedin.com/in/rofid/"
                 target="_blank"
-                class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+                class="mx-3 mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
                 rel="noopener"
                 aria-label="Linkedin"
               >
@@ -234,7 +267,7 @@
               <a
                 href="https://github.com/Pid24"
                 target="_blank"
-                class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+                class="mx-3 mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
                 rel="noopener"
                 aria-label="Github"
               >
@@ -251,98 +284,74 @@
       </div>
     </section>
 
-    <section id="portfolio" class="pb-16 bg-slate-100 pt-36">
+    <section id="portfolio" class="no-dark-mode bg-slate-100 pb-16 pt-36">
       <div class="container">
         <div class="w-full px-4">
-          <div class="max-w-xl mx-auto mb-16 text-center">
+          <div class="mx-auto mb-16 max-w-xl text-center">
             <h4 class="mb-2 text-lg font-semibold text-primary">Portfolio</h4>
             <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">Project Terbaru</h2>
-            <p class="font-medium text-md text-secondary md:text-lg">Ini adalah beberapa project terbaru yang saya buat di tahun 2024</p>
+            <p class="text-md font-medium text-secondary md:text-lg">Ini adalah beberapa project terbaru yang saya buat di tahun 2024</p>
           </div>
         </div>
-        <div class="flex flex-wrap justify-center w-full px-4 xl:mx-auto xl:w-10/12">
-          <div class="p-4 mb-12 md:w-1/2">
-            <div class="overflow-hidden transition-shadow duration-300 rounded-md shadow-md hover:shadow-xl">
+        <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
+          <div class="mb-12 p-4 md:w-1/2">
+            <div class="overflow-hidden rounded-md shadow-md transition-shadow duration-300 hover:shadow-xl">
               <img src="dist/img/web-umt.png" alt="portfolio1" class="w-full" />
             </div>
-            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">Web UMT</h3>
+            <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">
+              <a href="https://github.com/Pid24/web-umt" class="text-primary hover:underline" target="_blank">Web UMT</a>
+            </h3>
             <p class="text-base font-medium text-secondary">
               The UMT website is a dedicated site for the Informatics program at UMT, offering several features such as payment information, academic information, and data on lecturers and alumni of the Informatics program.
             </p>
-          </div>
-    </section>
-
-    <section id="clients" class="pb-32 bg-slate-700 pt-36">
-      <div class="container">
-        <div class="w-full px-4">
-          <div class="mx-auto mb-16 text-center">
-            <h4 class="mb-2 text-lg font-semibold text-primary">Clients</h4>
-            <h2 class="mb-4 text-3xl font-bold text-white sm:text-4xl lg:text-5xl">Pernah Bekerjasama Dengan</h2>
-            <p class="font-medium text-md text-secondary md:text-lg">Ini adalah beberapa project terbaru yang saya buat</p>
-          </div>
-        </div>
-        <div class="w-full px-4">
-          <div class="flex flex-wrap items-center justify-center">
-            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="dist/img/google.png" alt="google" />
-            </a>
-            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="dist/img/gojek.png" alt="gojek" />
-            </a>
-            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="dist/img/tokopedia.png" alt="tokopedia" />
-            </a>
-            <a href="#" class="mx-4 max-w-[120px] py-4 opacity-60 grayscale transition duration-500 hover:opacity-100 hover:grayscale-0 lg:mx-6 xl:mx-8">
-              <img src="dist/img/amazon.png" alt="amazon" />
-            </a>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="blog" class="pb-32 bg-slate-100 pt-36">
+    <section id="blog" class="no-dark-mode bg-slate-100 pb-32 pt-36">
       <div class="container">
         <div class="w-full px-4">
-          <div class="max-w-xl mx-auto mb-16 text-center">
+          <div class="mx-auto mb-16 max-w-xl text-center">
             <h4 class="mb-2 text-lg font-semibold text-primary">Blog</h4>
             <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">Tulisan Terkini</h2>
-            <p class="font-medium text-md text-secondary md:text-lg">Tulisan yang akan selalu diupdate setiap hari!</p>
+            <p class="text-md font-medium text-secondary md:text-lg">Tulisan yang akan selalu diupdate setiap hari!</p>
           </div>
         </div>
         <div class="flex flex-wrap">
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden transition-shadow duration-300 bg-white shadow-lg rounded-xl hover:shadow-2xl">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-2xl">
               <img src="dist/img/yotsuba-uesugi.jpg" alt="yotsuba-uesugi" class="w-full" />
               <div class="px-6 py-8">
                 <h3>
-                  <a href="#" class="block mb-3 text-xl font-semibold truncate text-dark hover:text-primary">Yotsuba Berhasil Menikah Dengan Uesugi</a>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary">Yotsuba Berhasil Menikah Dengan Uesugi</a>
                 </h3>
                 <p class="mb-6 text-base font-medium text-secondary">Futaro menikahi Yotsuba dalam serial manga. Yotsuba adalah gadis terbaik dan dia adalah gadis yang sama di foto yang Futaro simpan selama ini.</p>
-                <a href="#" class="px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary hover:opacity-80">Baca Selengkapnya</a>
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-80">Baca Selengkapnya</a>
               </div>
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden transition-shadow duration-300 bg-white shadow-lg rounded-xl hover:shadow-2xl">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-2xl">
               <img src="dist/img/lostbelt.jfif" alt="lostbelt7" class="w-full" />
               <div class="px-6 py-8">
                 <h3>
-                  <a href="#" class="block mb-3 text-xl font-semibold truncate text-dark hover:text-primary">Lostbelt 7 Hadir Dalam Fate Grand Order</a>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary">Lostbelt 7 Hadir Dalam Fate Grand Order</a>
                 </h3>
                 <p class="mb-6 text-base font-medium text-secondary">Lostbelt 7 kini telah hadir di Fate Grand Order. Petualangan Mash dan Fujimaru kini penuh dengan misteri yang membingungkan.</p>
-                <a href="#" class="px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary hover:opacity-80">Baca Selengkapnya</a>
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-80">Baca Selengkapnya</a>
               </div>
             </div>
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
-            <div class="mb-10 overflow-hidden transition-shadow duration-300 bg-white shadow-lg rounded-xl hover:shadow-2xl">
+            <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-2xl">
               <img src="dist/img/kobo.jpg" alt="yotsuba-uesugi" class="w-full" />
               <div class="px-6 py-8">
                 <h3>
-                  <a href="#" class="block mb-3 text-xl font-semibold truncate text-dark hover:text-primary">Kobo Kanaeru Cover Lagu Happy</a>
+                  <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary">Kobo Kanaeru Cover Lagu Happy</a>
                 </h3>
                 <p class="mb-6 text-base font-medium text-secondary">Kobo Kanaeru akhirnya mengcover lagu dari grupband Mocca yang berjudul Happy.</p>
-                <a href="#" class="px-4 py-2 text-sm font-medium text-white rounded-lg bg-primary hover:opacity-80">Baca Selengkapnya</a>
+                <a href="#" class="rounded-lg bg-primary px-4 py-2 text-sm font-medium text-white hover:opacity-80">Baca Selengkapnya</a>
               </div>
             </div>
           </div>
@@ -353,88 +362,87 @@
     <section id="contact" class="pb-32 pt-36">
       <div class="container">
         <div class="w-full px-4">
-          <div class="max-w-xl mx-auto mb-16 text-center">
+          <div class="mx-auto mb-16 max-w-xl text-center">
             <h4 class="mb-2 text-lg font-semibold text-primary">Contact</h4>
             <h2 class="mb-4 text-3xl font-bold text-dark sm:text-4xl lg:text-5xl">Hubungi Saya</h2>
-            <p class="font-medium text-md text-secondary md:text-lg">Silahkan hubungi saya jika ingin memesan jasa saya!</p>
+            <p class="text-md font-medium text-secondary md:text-lg">Silahkan hubungi saya jika ingin memesan jasa saya!</p>
           </div>
         </div>
         <form>
           <div class="w-full lg:mx-auto lg:w-2/3">
-            <div class="w-full px-4 mb-8">
+            <div class="mb-8 w-full px-4">
               <label for="name" class="text-base font-bold text-primary">Name</label>
-              <input type="text" id="name" class="w-full p-3 rounded-md bg-slate-200 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+              <input type="text" id="name" class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
             </div>
-            <div class="w-full px-4 mb-8">
+            <div class="mb-8 w-full px-4">
               <label for="email" class="text-base font-bold text-primary">Email</label>
-              <input type="email" id="email" class="w-full p-3 rounded-md bg-slate-200 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
+              <input type="email" id="email" class="w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" />
             </div>
-            <div class="w-full px-4 mb-8">
+            <div class="mb-8 w-full px-4">
               <label for="message" class="text-base font-bold text-primary">Message</label>
-              <textarea type="text" id="message" class="w-full h-32 p-3 rounded-md bg-slate-200 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+              <textarea type="text" id="message" class="h-32 w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
             </div>
             <div class="w-full px-4">
-              <button class="w-full px-8 py-3 text-base font-semibold text-white transition duration-500 rounded-full bg-primary button-hover-effect">Enter</button>
+              <button class="button-hover-effect w-full rounded-full bg-primary px-8 py-3 text-base font-semibold text-white transition duration-500">Enter</button>
             </div>
           </div>
         </form>
       </div>
     </section>
 
-    <footer class="pt-24 pb-12 bg-dark">
+    <footer class="bg-dark pt-24 pb-12">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="w-full px-4 mb-12 font-medium text-slate-300 md:w-1/3">
+          <div class="mb-12 w-full px-4 font-medium text-slate-300 md:w-1/3">
             <h2 class="mb-5 text-4xl font-bold text-white">ROFID NASIF ANNAFIE</h2>
             <h3 class="mb-2 text-2xl font-bold">Hubungi Saya</h3>
             <p>rofidnasifannafie@gmail.com</p>
-            <p>Jln. Margahayu Permai 18</p>
             <p>Bandung</p>
           </div>
-          <div class="w-full px-4 mb-12 md:w-1/3">
+          <div class="mb-12 w-full px-4 md:w-1/3">
             <h3 class="mb-5 text-xl font-semibold text-white">Kategori Tulisan</h3>
             <ul class="text-slate-300">
               <li>
-                <a href="#" class="inline-block mb-3 text-base hover:text-primary">Gotoubun</a>
+                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Gotoubun</a>
               </li>
               <li>
-                <a href="#" class="inline-block mb-3 text-base hover:text-primary">Fate Grand Order</a>
+                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Fate Grand Order</a>
               </li>
               <li>
-                <a href="#" class="inline-block mb-3 text-base hover:text-primary">Hololive</a>
+                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Hololive</a>
               </li>
             </ul>
           </div>
-          <div class="w-full px-4 mb-12 md:w-1/3">
+          <div class="mb-12 w-full px-4 md:w-1/3">
             <h3 class="mb-5 text-xl font-semibold text-white">Tautan</h3>
             <ul class="text-slate-300">
               <li>
-                <a href="#home" class="inline-block mb-3 text-base hover:text-primary">Home</a>
+                <a href="#home" class="mb-3 inline-block text-base hover:text-primary">Home</a>
               </li>
               <li>
-                <a href="#about" class="inline-block mb-3 text-base hover:text-primary">About Me</a>
+                <a href="#about" class="mb-3 inline-block text-base hover:text-primary">About Me</a>
               </li>
               <li>
-                <a href="#portfolio" class="inline-block mb-3 text-base hover:text-primary">Portfolio</a>
+                <a href="#portfolio" class="mb-3 inline-block text-base hover:text-primary">Portfolio</a>
               </li>
               <li>
-                <a href="#clients" class="inline-block mb-3 text-base hover:text-primary">Clients</a>
+                <a href="#clients" class="mb-3 inline-block text-base hover:text-primary">Clients</a>
               </li>
               <li>
-                <a href="#blog" class="inline-block mb-3 text-base hover:text-primary">Blog</a>
+                <a href="#blog" class="mb-3 inline-block text-base hover:text-primary">Blog</a>
               </li>
               <li>
-                <a href="#contact" class="inline-block mb-3 text-base hover:text-primary">Contact</a>
+                <a href="#contact" class="mb-3 inline-block text-base hover:text-primary">Contact</a>
               </li>
             </ul>
           </div>
         </div>
-        <div class="w-full pt-10 border-t border-slate-700">
-          <div class="flex items-center justify-center mb-5">
+        <div class="w-full border-t border-slate-700 pt-10">
+          <div class="mb-5 flex items-center justify-center">
             <a
               href="https://www.instagram.com/piddddz/"
               target="_blank"
-              class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              class="mx-3 mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               rel="noopener"
               aria-label="Instagram"
             >
@@ -448,7 +456,7 @@
             <a
               href="https://twitter.com/rfdzna"
               target="_blank"
-              class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              class="mx-3 mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               rel="noopener"
               aria-label="Twitter"
             >
@@ -462,7 +470,7 @@
             <a
               href="https://www.linkedin.com/in/rofid/"
               target="_blank"
-              class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              class="mx-3 mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               rel="noopener"
               aria-label="Linkedin"
             >
@@ -476,7 +484,7 @@
             <a
               href="https://github.com/Pid24"
               target="_blank"
-              class="flex items-center justify-center mx-3 mr-3 border rounded-full h-9 w-9 border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
+              class="mx-3 mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
               rel="noopener"
               aria-label="Github"
             >
@@ -488,7 +496,7 @@
               </svg>
             </a>
           </div>
-          <p class="text-xs font-medium text-center text-slate-500">
+          <p class="text-center text-xs font-medium text-slate-500">
             Dibuat dengan <span class="text-pink-500">❤</span> oleh <a href="https://www.instagram.com/piddddz/" target="_blank" class="font-bold text-primary">Rofid Nasif Annafie</a>
             <a href="https://tailwindcss.com/" target="_blank" class="font-bold text-sky-500"> Tailwind CSS</a>
           </p>
@@ -520,17 +528,17 @@
         });
       };
 
-  // Theme toggle script
-  const themeToggleButton = document.getElementById('theme-toggle');
-  const bodyElement = document.body;
-  
-  themeToggleButton.addEventListener('click', () => {
-    if (bodyElement.getAttribute('data-theme') === 'dark') {
-      bodyElement.setAttribute('data-theme', 'light');
-    } else {
-      bodyElement.setAttribute('data-theme', 'dark');
-    }
-  });
+      // Theme toggle script
+      const themeToggleButton = document.getElementById("theme-toggle");
+      const bodyElement = document.body;
+
+      themeToggleButton.addEventListener("click", () => {
+        if (bodyElement.getAttribute("data-theme") === "dark") {
+          bodyElement.setAttribute("data-theme", "light");
+        } else {
+          bodyElement.setAttribute("data-theme", "dark");
+        }
+      });
     </script>
   </body>
 </html>

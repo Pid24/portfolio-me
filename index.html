@@ -7,32 +7,6 @@
     <title>Portfolio - Rofid</title>
     <link rel="stylesheet" href="dist/output.css" />
     <style>
-      /* Mengubah teks di hero, about, dan contact section */
-      #home h1 span,
-      #home h2,
-      #home p,
-      #about h2,
-      #about p,
-      #contact h2,
-      #contact p,
-      #portfolio h2,
-      #portfolio p {
-        color: var(--text-color); /* Teks mengikuti variabel tema */
-      }
-
-      /* Warna judul di dark mode */
-      h1,
-      h2,
-      h3,
-      h4 {
-        color: var(--text-color);
-      }
-
-      /* Menyesuaikan warna link */
-      a {
-        color: var(--link-color);
-      }
-
       :root {
         --background-color: #ffffff;
         --text-color: #000000;
@@ -86,24 +60,30 @@
         transition: background-color 0.3s, box-shadow 0.3s;
       }
 
-      header .container {
+      .portfolio-image {
+        width: 100%;
+        height: 300px; /* Atur tinggi yang konsisten */
+        object-fit: cover; /* Mengatur gambar agar sesuai tanpa merusak aspek rasio */
+      }
+
+      .container {
         max-width: 1200px;
         margin: 0 auto;
+        padding: 0 15px;
       }
 
       nav ul {
         list-style: none;
         padding: 0;
         margin: 0;
-      }
-
-      nav ul li {
-        margin-bottom: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
       }
 
       nav ul li a {
         display: block;
-        padding: 10px;
+        padding: 10px 15px;
         border-radius: 5px;
         transition: background-color 0.3s, color 0.3s;
       }
@@ -116,10 +96,6 @@
       .active-link {
         font-weight: bold;
         color: var(--button-bg);
-      }
-
-      .container {
-        padding: 0 15px;
       }
 
       .relative {
@@ -146,79 +122,60 @@
         fill: currentColor;
       }
 
-      /* Mengabaikan dark mode untuk portfolio dan blog */
       .no-dark-mode {
-        background-color: #f8fafc !important; /* Warna background light */
-        color: #1f2937 !important; /* Warna teks light */
+        background-color: #f8fafc !important;
+        color: #1f2937 !important;
       }
 
       .no-dark-mode h2,
       .no-dark-mode p,
       .no-dark-mode a {
-        color: #1f2937 !important; /* Pastikan teks tetap gelap */
+        color: #1f2937 !important;
       }
     </style>
   </head>
   <body>
-    <header class="absolute top-0 left-0 z-10 flex w-full items-center bg-transparent">
-      <div class="container">
-        <div class="relative flex items-center justify-between">
-          <div class="px-4">
-            <a href="#home" class="block py-6 text-lg font-bold text-primary">ROFID</a>
-          </div>
-          <div class="flex items-center px-4">
-            <button id="hamburger" name="hamburger" type="button" class="absolute right-4 block lg:hidden" aria-label="hamburger">
-              <span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
-              <span class="hamburger-line transition duration-300 ease-in-out"></span>
-              <span class="hamburger-line origin-top-left transition duration-300 ease-in-out"></span>
-            </button>
-            <nav id="nav-menu" class="absolute right-4 top-full hidden w-full max-w-[250px] rounded-lg bg-white py-5 shadow-lg lg:static lg:block lg:max-w-full lg:rounded-none lg:bg-transparent lg:shadow-none">
-              <ul class="block lg:flex">
-                <li class="group">
-                  <a href="#home" class="active-link mx-8 flex py-2 text-base text-dark group-hover:text-primary">Home</a>
-                </li>
-                <li class="group">
-                  <a href="#about" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary">About Me</a>
-                </li>
-                <li class="group">
-                  <a href="#portfolio" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary">Portfolio</a>
-                </li>
-                <li class="group">
-                  <a href="#blog" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary">Blog</a>
-                </li>
-                <li class="group">
-                  <a href="#contact" class="mx-8 flex py-2 text-base text-dark group-hover:text-primary">Contact</a>
-                </li>
-                <button id="theme-toggle" class="rounded-full bg-primary px-4 py-2 text-white">Toggle Dark Mode</button>
-              </ul>
-            </nav>
-          </div>
-        </div>
+    <header class="absolute top-0 left-0 z-10 w-full bg-transparent">
+      <div class="container flex items-center justify-between">
+        <a href="#home" class="block py-6 text-lg font-bold text-primary">ROFID</a>
+        <button id="hamburger" class="lg:hidden" aria-label="hamburger">
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+          <span class="hamburger-line"></span>
+        </button>
+        <nav id="nav-menu" class="hidden lg:flex">
+          <ul>
+            <li><a href="#home" class="active-link">Home</a></li>
+            <li><a href="#about">About Me</a></li>
+            <li><a href="#portfolio">Portfolio</a></li>
+            <li><a href="#blog">Blog</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <button id="theme-toggle" class="rounded-full bg-primary px-4 py-2 text-white">Toggle Dark Mode</button>
+          </ul>
+        </nav>
       </div>
     </header>
 
     <section id="home" class="pt-36">
-      <div class="container">
-        <div class="flex flex-wrap">
-          <div class="w-full self-center px-4 lg:w-1/2">
-            <h1 class="text-base font-semibold" style="color: var(--text-color)">Hi ✌, Saya <span class="mt-1 block text-3xl font-bold" style="color: var(--text-color)">Rofid Nasif Annafie</span></h1>
-            <h2 class="lg:2xl mb-5 text-lg font-medium text-secondary">Mahasiswa | Web Developer</h2>
-            <p class="mb-10 font-medium leading-relaxed text-secondary">Keunggulan adalah sebuah seni yang dimenangkan oleh latihan dan kebiasaan.</p>
-            <a href="#contact" class="button-hover-effect rounded-full bg-primary px-8 py-3 text-base font-semibold text-white transition duration-300 ease-in-out">Contact Me</a>
-          </div>
-          <div class="w-full self-end px-4 lg:w-1/2">
-            <div class="relative mt-10 lg:right-0 lg:mt-9">
-              <img src="dist/img/yotsuba.png" alt="rofid-photo" class="mx-auto max-w-full rounded-full shadow-lg" />
-              <span class="absolute -bottom-0 left-1/2 -z-10 -translate-x-1/2 md:scale-125">
-                <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-                  <path
-                    fill="#22c55e"
-                    d="M43.9,-74.5C58.1,-67.8,71.7,-58.5,73.8,-45.7C75.8,-32.8,66.4,-16.4,63.1,-1.9C59.9,12.7,62.9,25.3,59.6,36C56.2,46.7,46.7,55.5,35.7,57.9C24.7,60.4,12.4,56.6,-1.9,59.8C-16.1,63.1,-32.2,73.3,-39.5,68.8C-46.9,64.2,-45.5,44.9,-52.4,30.9C-59.3,17,-74.3,8.5,-80.6,-3.6C-86.9,-15.7,-84.3,-31.5,-75.6,-42.1C-66.8,-52.8,-51.8,-58.3,-38.2,-65.4C-24.6,-72.6,-12.3,-81.3,1.3,-83.5C14.8,-85.6,29.6,-81.3,43.9,-74.5Z"
-                    transform="translate(100 100) scale(1.1)"
-                  />
-                </svg>
-              </span>
-            </div>
+      <div class="container flex flex-wrap">
+        <div class="w-full px-4 lg:w-1/2">
+          <h1 class="text-3xl font-bold" style="color: var(--text-color)">Hi ✌, Saya <span class="mt-1 block">Rofid Nasif Annafie</span></h1>
+          <h2 class="mb-5 text-lg font-medium text-secondary">Mahasiswa | Web Developer</h2>
+          <p class="mb-10 font-medium leading-relaxed text-secondary">Keunggulan adalah sebuah seni yang dimenangkan oleh latihan dan kebiasaan.</p>
+          <a href="#contact" class="button-hover-effect rounded-full bg-primary px-8 py-3 text-base font-semibold text-white">Contact Me</a>
+        </div>
+        <div class="w-full px-4 lg:w-1/2">
+          <div class="relative mt-10 lg:mt-9">
+            <img src="dist/img/yotsuba.png" alt="rofid-photo" class="mx-auto max-w-full rounded-full shadow-lg" />
+            <span class="absolute -bottom-0 left-1/2 -z-10 -translate-x-1/2 scale-125">
+              <svg width="400" height="400" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  fill="#22c55e"
+                  d="M43.9,-74.5C58.1,-67.8,71.7,-58.5,73.8,-45.7C75.8,-32.8,66.4,-16.4,63.1,-1.9C59.9,12.7,62.9,25.3,59.6,36C56.2,46.7,46.7,55.5,35.7,57.9C24.7,60.4,12.4,56.6,-1.9,59.8C-16.1,63.1,-32.2,73.3,-39.5,68.8C-46.9,64.2,-45.5,44.9,-52.4,30.9C-59.3,17,-74.3,8.5,-80.6,-3.6C-86.9,-15.7,-84.3,-31.5,-75.6,-42.1C-66.8,-52.8,-51.8,-58.3,-38.2,-65.4C-24.6,-72.6,-12.3,-81.3,1.3,-83.5C14.8,-85.6,29.6,-81.3,43.9,-74.5Z"
+                  transform="translate(100 100) scale(1.1)"
+                />
+              </svg>
+            </span>
           </div>
         </div>
       </div>
@@ -296,7 +253,7 @@
         <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
           <div class="mb-12 p-4 md:w-1/2">
             <div class="overflow-hidden rounded-md shadow-md transition-shadow duration-300 hover:shadow-xl">
-              <img src="dist/img/web-umt.png" alt="portfolio1" class="w-full" />
+              <img src="dist/img/web-umt.png" alt="portfolio1" class="portfolio-image" />
             </div>
             <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">
               <a href="https://github.com/Pid24/web-umt" class="text-primary hover:underline" target="_blank">Web UMT</a>
@@ -305,11 +262,9 @@
               The UMT website is a dedicated site for the Informatics program at UMT, offering several features such as payment information, academic information, and data on lecturers and alumni of the Informatics program.
             </p>
           </div>
-        </div>
-        <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
           <div class="mb-12 p-4 md:w-1/2">
             <div class="overflow-hidden rounded-md shadow-md transition-shadow duration-300 hover:shadow-xl">
-              <img src="dist/img/atraindes-ticket.png" alt="portfolio1" class="w-full" />
+              <img src="dist/img/atraindes-ticket.png" alt="portfolio2" class="portfolio-image" />
             </div>
             <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">
               <a href="https://github.com/Pid24/atraindes-ticket" class="text-primary hover:underline" target="_blank">Atraindes Ticket</a>
@@ -319,11 +274,9 @@
               use.
             </p>
           </div>
-        </div>
-        <div class="flex w-full flex-wrap justify-center px-4 xl:mx-auto xl:w-10/12">
           <div class="mb-12 p-4 md:w-1/2">
             <div class="overflow-hidden rounded-md shadow-md transition-shadow duration-300 hover:shadow-xl">
-              <img src="dist/img/linktree-clone.png" alt="portfolio1" class="w-full" />
+              <img src="dist/img/linktree-clone.png" alt="portfolio3" class="portfolio-image" />
             </div>
             <h3 class="mt-5 mb-3 text-xl font-semibold text-dark">
               <a href="https://github.com/Pid24/linktree-pid" class="text-primary hover:underline" target="_blank">Linktree Clone</a>
@@ -370,7 +323,7 @@
           </div>
           <div class="w-full px-4 lg:w-1/2 xl:w-1/3">
             <div class="mb-10 overflow-hidden rounded-xl bg-white shadow-lg transition-shadow duration-300 hover:shadow-2xl">
-              <img src="dist/img/kobo.jpg" alt="yotsuba-uesugi" class="w-full" />
+              <img src="dist/img/kobo.jpg" alt="kobo-cover" class="w-full" />
               <div class="px-6 py-8">
                 <h3>
                   <a href="#" class="mb-3 block truncate text-xl font-semibold text-dark hover:text-primary">Kobo Kanaeru Cover Lagu Happy</a>
@@ -405,7 +358,7 @@
             </div>
             <div class="mb-8 w-full px-4">
               <label for="message" class="text-base font-bold text-primary">Message</label>
-              <textarea type="text" id="message" class="h-32 w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
+              <textarea id="message" class="h-32 w-full rounded-md bg-slate-200 p-3 text-dark focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"></textarea>
             </div>
             <div class="w-full px-4">
               <button class="button-hover-effect w-full rounded-full bg-primary px-8 py-3 text-base font-semibold text-white transition duration-500">Enter</button>
@@ -418,66 +371,33 @@
     <footer class="bg-dark pt-24 pb-12">
       <div class="container">
         <div class="flex flex-wrap">
-          <div class="mb-12 w-full px-4 font-medium text-slate-300 md:w-1/3">
+          <div class="w-full px-4 text-slate-300 md:w-1/3">
             <h2 class="mb-5 text-4xl font-bold text-white">ROFID NASIF ANNAFIE</h2>
             <h3 class="mb-2 text-2xl font-bold">Hubungi Saya</h3>
             <p>rofidnasifannafie@gmail.com</p>
             <p>Bandung</p>
           </div>
-          <div class="mb-12 w-full px-4 md:w-1/3">
+          <div class="w-full px-4 md:w-1/3">
             <h3 class="mb-5 text-xl font-semibold text-white">Kategori Tulisan</h3>
             <ul class="text-slate-300">
-              <li>
-                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Gotoubun</a>
-              </li>
-              <li>
-                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Fate Grand Order</a>
-              </li>
-              <li>
-                <a href="#" class="mb-3 inline-block text-base hover:text-primary">Hololive</a>
-              </li>
+              <li><a href="#" class="mb-3 inline-block text-base hover:text-primary">Gotoubun</a></li>
+              <li><a href="#" class="mb-3 inline-block text-base hover:text-primary">Fate Grand Order</a></li>
+              <li><a href="#" class="mb-3 inline-block text-base hover:text-primary">Hololive</a></li>
             </ul>
           </div>
-          <div class="mb-12 w-full px-4 md:w-1/3">
+          <div class="w-full px-4 md:w-1/3">
             <h3 class="mb-5 text-xl font-semibold text-white">Tautan</h3>
             <ul class="text-slate-300">
-              <li>
-                <a href="#home" class="mb-3 inline-block text-base hover:text-primary">Home</a>
-              </li>
-              <li>
-                <a href="#about" class="mb-3 inline-block text-base hover:text-primary">About Me</a>
-              </li>
-              <li>
-                <a href="#portfolio" class="mb-3 inline-block text-base hover:text-primary">Portfolio</a>
-              </li>
-              <li>
-                <a href="#clients" class="mb-3 inline-block text-base hover:text-primary">Clients</a>
-              </li>
-              <li>
-                <a href="#blog" class="mb-3 inline-block text-base hover:text-primary">Blog</a>
-              </li>
-              <li>
-                <a href="#contact" class="mb-3 inline-block text-base hover:text-primary">Contact</a>
-              </li>
+              <li><a href="#home" class="mb-3 inline-block text-base hover:text-primary">Home</a></li>
+              <li><a href="#about" class="mb-3 inline-block text-base hover:text-primary">About Me</a></li>
+              <li><a href="#portfolio" class="mb-3 inline-block text-base hover:text-primary">Portfolio</a></li>
+              <li><a href="#blog" class="mb-3 inline-block text-base hover:text-primary">Blog</a></li>
+              <li><a href="#contact" class="mb-3 inline-block text-base hover:text-primary">Contact</a></li>
             </ul>
           </div>
         </div>
         <div class="w-full border-t border-slate-700 pt-10">
           <div class="mb-5 flex items-center justify-center">
-            <a
-              href="https://www.instagram.com/piddddz/"
-              target="_blank"
-              class="mx-3 mr-3 flex h-9 w-9 items-center justify-center rounded-full border border-slate-300 hover:border-primary hover:bg-primary hover:text-white"
-              rel="noopener"
-              aria-label="Instagram"
-            >
-              <svg role="img" width="20" class="fill-current" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                <title>Instagram</title>
-                <path
-                  d="M12 0C8.74 0 8.333.015 7.053.072 5.775.132 4.905.333 4.14.63c-.789.306-1.459.717-2.126 1.384S.935 3.35.63 4.14C.333 4.905.131 5.775.072 7.053.012 8.333 0 8.74 0 12s.015 3.667.072 4.947c.06 1.277.261 2.148.558 2.913.306.788.717 1.459 1.384 2.126.667.666 1.336 1.079 2.126 1.384.766.296 1.636.499 2.913.558C8.333 23.988 8.74 24 12 24s3.667-.015 4.947-.072c1.277-.06 2.148-.262 2.913-.558.788-.306 1.459-.718 2.126-1.384.666-.667 1.079-1.335 1.384-2.126.296-.765.499-1.636.558-2.913.06-1.28.072-1.687.072-4.947s-.015-3.667-.072-4.947c-.06-1.277-.262-2.149-.558-2.913-.306-.789-.718-1.459-1.384-2.126C21.319 1.347 20.651.935 19.86.63c-.765-.297-1.636-.499-2.913-.558C15.667.012 15.26 0 12 0zm0 2.16c3.203 0 3.585.016 4.85.071 1.17.055 1.805.249 2.227.415.562.217.96.477 1.382.896.419.42.679.819.896 1.381.164.422.36 1.057.413 2.227.057 1.266.07 1.646.07 4.85s-.015 3.585-.074 4.85c-.061 1.17-.256 1.805-.421 2.227-.224.562-.479.96-.899 1.382-.419.419-.824.679-1.38.896-.42.164-1.065.36-2.235.413-1.274.057-1.649.07-4.859.07-3.211 0-3.586-.015-4.859-.074-1.171-.061-1.816-.256-2.236-.421-.569-.224-.96-.479-1.379-.899-.421-.419-.69-.824-.9-1.38-.165-.42-.359-1.065-.42-2.235-.045-1.26-.061-1.649-.061-4.844 0-3.196.016-3.586.061-4.861.061-1.17.255-1.814.42-2.234.21-.57.479-.96.9-1.381.419-.419.81-.689 1.379-.898.42-.166 1.051-.361 2.221-.421 1.275-.045 1.65-.06 4.859-.06l.045.03zm0 3.678c-3.405 0-6.162 2.76-6.162 6.162 0 3.405 2.76 6.162 6.162 6.162 3.405 0 6.162-2.76 6.162-6.162 0-3.405-2.76-6.162-6.162-6.162zM12 16c-2.21 0-4-1.79-4-4s1.79-4 4-4 4 1.79 4 4-1.79 4-4 4zm7.846-10.405c0 .795-.646 1.44-1.44 1.44-.795 0-1.44-.646-1.44-1.44 0-.794.646-1.439 1.44-1.439.793-.001 1.44.645 1.44 1.439z"
-                />
-              </svg>
-            </a>
             <a
               href="https://twitter.com/rfdzna"
               target="_blank"
@@ -522,8 +442,8 @@
             </a>
           </div>
           <p class="text-center text-xs font-medium text-slate-500">
-            Dibuat dengan <span class="text-pink-500">❤</span> oleh <a href="https://www.instagram.com/piddddz/" target="_blank" class="font-bold text-primary">Rofid Nasif Annafie</a>
-            <a href="https://tailwindcss.com/" target="_blank" class="font-bold text-sky-500"> Tailwind CSS</a>
+            Dibuat dengan <span class="text-pink-500">❤</span> oleh <a href="https://www.instagram.com/piddddz/" target="_blank" class="font-bold text-primary">Rofid Nasif Annafie</a> menggunakan
+            <a href="https://tailwindcss.com/" target="_blank" class="font-bold text-sky-500">Tailwind CSS</a>
           </p>
         </div>
       </div>
@@ -531,7 +451,6 @@
 
     <script src="dist/js/script.js"></script>
     <script>
-      // Highlight active section in the navigation menu
       const sections = document.querySelectorAll("section");
       const navLi = document.querySelectorAll("nav ul li a");
 
@@ -553,7 +472,6 @@
         });
       };
 
-      // Theme toggle script
       const themeToggleButton = document.getElementById("theme-toggle");
       const bodyElement = document.body;
 
